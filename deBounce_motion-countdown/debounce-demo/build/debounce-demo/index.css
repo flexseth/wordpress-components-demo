@@ -1,0 +1,28 @@
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/debounce-demo/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * Editor-specific styles for the Debounce Demo block.
+ */
+.wp-block-create-block-debounce-demo {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+.wp-block-create-block-debounce-demo .debounce-demo-container h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #1e1e1e;
+}
+.wp-block-create-block-debounce-demo .debounce-demo-container .components-base-control {
+  margin-bottom: 16px;
+}
+.wp-block-create-block-debounce-demo .debounce-demo-container .debounce-demo-status {
+  margin-top: 16px;
+}
+.wp-block-create-block-debounce-demo .debounce-demo-container .debounce-demo-status .components-notice {
+  margin: 8px 0;
+}
+
+/*# sourceMappingURL=index.css.map*/

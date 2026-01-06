@@ -1,0 +1,30 @@
+/**
+ * Editor-specific styles for the Debounce Demo block.
+ */
+
+.wp-block-create-block-debounce-demo {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 20px;
+	background-color: #f9f9f9;
+
+	.debounce-demo-container {
+		h3 {
+			margin-top: 0;
+			margin-bottom: 16px;
+			color: #1e1e1e;
+		}
+
+		.components-base-control {
+			margin-bottom: 16px;
+		}
+
+		.debounce-demo-status {
+			margin-top: 16px;
+
+			.components-notice {
+				margin: 8px 0;
+			}
+		}
+	}
+}
