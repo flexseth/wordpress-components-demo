@@ -37,6 +37,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
 		const input = block.querySelector( '.debounce-demo-input' );
 		const statusText = block.querySelector( '.status-text' );
 		const valueText = block.querySelector( '.value-text' );
+		const delay = parseInt( block.getAttribute( 'data-delay' ) ) || 500;
 
 		if ( ! input || ! statusText || ! valueText ) {
 			return;
@@ -53,8 +54,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
 			statusText.style.color = '#46b450';
 		};
 
-		// Create a debounced version of the update function with 500ms delay.
-		const debouncedUpdate = debounce( updateDebouncedValue, 500 );
+		// Create a debounced version of the update function with the configured delay.
+		const debouncedUpdate = debounce( updateDebouncedValue, delay );
 
 		// Listen for input events.
 		input.addEventListener( 'input', ( e ) => {

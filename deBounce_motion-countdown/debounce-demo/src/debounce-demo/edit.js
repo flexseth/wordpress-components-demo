@@ -18,7 +18,7 @@ import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/components/
  */
-import { PanelBody, TextControl, Notice } from '@wordpress/components';
+import { PanelBody, TextControl, Notice, RangeControl } from '@wordpress/components';
 
 /**
  * WordPress element (React) hooks.
@@ -52,10 +52,10 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const { searchTerm } = attributes;
+	const { searchTerm, delay } = attributes;
 	const [ inputValue, setInputValue ] = useState( searchTerm );
 	const [ isTyping, setIsTyping ] = useState( false );
-	const debouncedValue = useDebounce( inputValue, 500 );
+	const debouncedValue = useDebounce( inputValue, delay );
 
 	// Update the block attribute when the debounced value changes.
 	useEffect( () => {
@@ -78,9 +78,29 @@ export default function Edit( { attributes, setAttributes } ) {
 					title={ __( 'Debounce Settings', 'debounce-demo' ) }
 					initialOpen={ true }
 				>
+					<RangeControl
+						label={ __( 'Debounce Delay (milliseconds)', 'debounce-demo' ) }
+						value={ delay }
+						onChange={ ( value ) => setAttributes( { delay: value } ) }
+						min={ 0 }
+						max={ 5000 }
+						step={ 50 }
+						help={ __(
+							'Set how long to wait after typing stops before saving the value.',
+							'debounce-demo'
+						) }
+					/>
+					{ delay > 2000 && (
+						<Notice status="warning" isDismissible={ false }>
+							{ __(
+								`Warning: A delay of ${ delay }ms is quite long and may impact user experience. Consider using a shorter delay for better interactivity.`,
+								'debounce-demo'
+							) }
+						</Notice>
+					) }
 					<Notice status="info" isDismissible={ false }>
 						{ __(
-							'This demo uses a 500ms debounce delay. Type in the input below and watch the saved value update only after you stop typing.',
+							`Current delay: ${ delay }ms. Type in the input below and watch the saved value update only after you stop typing.`,
 							'debounce-demo'
 						) }
 					</Notice>
@@ -96,7 +116,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ inputValue }
 						onChange={ handleInputChange }
 						help={ __(
-							'The value will be saved 500ms after you stop typing.',
+							`The value will be saved ${ delay }ms after you stop typing.`,
 							'debounce-demo'
 						) }
 					/>

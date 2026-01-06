@@ -18,11 +18,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( { attributes } ) {
-	const { searchTerm } = attributes;
+	const { searchTerm, delay } = attributes;
 
 	return (
 		<div { ...useBlockProps.save() }>
-			<div className="debounce-demo-frontend">
+			<div className="debounce-demo-frontend" data-delay={ delay }>
 				<h3>Debounce Demo (Frontend)</h3>
 				<div className="debounce-demo-input-wrapper">
 					<label htmlFor="debounce-input">

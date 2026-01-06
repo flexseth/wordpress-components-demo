@@ -2,7 +2,7 @@
 Contributors:      The WordPress Contributors
 Tags:              block
 Tested up to:      6.7
-Stable tag:        0.1.0
+Stable tag:        0.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,8 +45,17 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
+= 0.2.0 =
+* Added configurable debounce delay setting
+* Added RangeControl in block settings panel to adjust delay (0-2000ms)
+* Updated editor and frontend to use dynamic delay value
+* Added CHANGELOG.md for detailed version history
+
 = 0.1.0 =
-* Release
+* Initial release
+* Custom useDebounce React hook
+* Interactive editor interface with real-time feedback
+* Frontend demonstration with vanilla JavaScript
 
 == Arbitrary section ==
 
